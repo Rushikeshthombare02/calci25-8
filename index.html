@@ -1,0 +1,97 @@
+<html>
+
+<head>
+           <title> Calculator by rushikesh </title>
+           <style>
+                   * { font-size:50; }
+                   body {background-color: light pink; }
+                   .btn { width:20%; margin:2&; border-radius:20px;}
+                   .btn:hover { color:red; background-color:yellow;}
+           </style>
+           <script>
+                    function compute()
+             {
+                    event.preventDefault();
+                    let num = document.getElementById("num");
+                    let ans = document.getElementById("ans");
+
+                    let btn_square = document.getElementById("btn_square");
+                    let btn_cube = document.getElementById("btn_cube");
+                    let btn_sqrt = document.getElementById("btn_sqrt");
+                   
+                    const action = document.activeElement.value;
+ 
+                    if (num.value =="")
+                    {
+                        alert("number is empty");
+                        ans.innerHTML = "";
+                        num.focus();
+                        return;
+                    }
+
+                    if (action == "square")
+                    {
+                        let n = parseFloat(num.value);
+                        let r = n * n;
+                        let msg = "square = " + r.toFixed(2);
+                        ans.innerHTML = msg;
+                    }
+                    else if (action == "cube" )
+                    {
+                        let n = parseFloat(num.value);
+                        let r = n * n * n;
+                        let msg = "cube = " + r.toFixed(2);
+                        ans.innerHTML = msg;
+                    }
+                    else if (action == "sqrt")
+                    {
+                        let n = parseFloat(num.value);
+                        if ( n > 0 )
+                        {
+                              let r = n ** 0.5;
+                              let msg = "sqrt = " + r.toFixed(2);
+                              ans.innerHTML = msg;
+                        }
+                        else
+                        {
+                              alert("invalid number");
+                              ans.innerHTMl= "";
+                              num.focus();
+                              return;
+                        }
+                    }
+               
+            }
+
+
+
+</script>
+
+
+</head>
+
+<body>
+<center>
+<h1>  Calculator </h1>
+<form onsubmit="compute()">
+
+      <input type="number" step="any" placeholder="enter number" id="num" />
+      <br><br>
+      <input type="submit" value="square" id="btn_square" class="btn" />
+      <input type="submit" value="cube" id="btn_cube" class="btn" />
+      <input type="submit" value="sqrt" id="btn_sqrt" class="btn" />
+      
+
+
+
+
+
+
+
+</form>
+         <h1 id="ans" />
+</center>
+
+
+</body>
+</html>
